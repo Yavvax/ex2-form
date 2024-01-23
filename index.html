@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form onsubmit="return Validation()" action="mailto:quincaillerie@exemple.com" method="post">
+    <form action="mailto:quincaillerie@exemple.com" method="post" onsubmit="return Validation()">
         <div id="container">
         <h1>Formulaire de commande de la quincaillerie</h1>
         <div id="outils-1">
             <h2>Choisissez les outils à commander: </h2>
-            <span id="erreur-outils"></span><br>
-            <select multiple size="3" name="outils" id="outils">
+
+            <select required multiple size="3" name="outils" id="outils">
                 <option>marteau</option>
                 <option>tournevis</option>
                 <option>pince</option>
@@ -21,28 +21,33 @@
         </div>
         <div id="facturation">
             <h2>Entrez votre adresse de facturation</h2>
-            <span id="erreur-nom-fac"></span><br>
+
             <label for="nom">Nom:</label>
             <input type="text" name="nom" id="nom" required placeholder="Bob">
             <span id="erreur-add-fac"></span><br>
             <label for="adresse">Adresse:</label>
-            <textarea name="adresse" id="adresse" cols="21" rows="5"></textarea>
+            <textarea required name="adresse" id="adresse" cols="21" rows="5"></textarea>
 
         </div>
         <div id="livraison">
+
             <h2>Entrez votre adresse de livraison</h2>
-            <label for="checkliv"><span>Utiliser la même adresse que la facturation</span></label>
+            <label for="checkliv">Utiliser la même adresse que la facturation</label>
             <input type="checkbox" id="checkliv" name="checkliv">
             <p>OU</p>
-            <span id="erreur-nom-liv"></span><br>
+
+            <span class="hidden" id="erreur-nom-liv">Le nom doit être rempli ou la case cochée</span><br>
+
             <label for="nom2">Nom:</label>
             <input type="text" name="nom2" id="nom2">
-            <span id="erreur-add-liv"></span><br>
+
+            <span class="hidden" id="erreur-add-liv">L'adresse doit être remplie ou la case cochée</span><br>
+
             <label for="adresse2">Adresse:</label>
             <textarea name="adresse2" id="adresse2" cols="21" rows="5"></textarea>
 
         </div>
-        <button type="submit" id="envoyer">Envoyer</button>
+            <button type="submit" id="envoyer">Envoyer</button>
         </div>
     </form>
 </body>
